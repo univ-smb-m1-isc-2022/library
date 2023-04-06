@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Library</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">My Library</a>
+        </div>
+        <div class="search">
+            <form action="#" method="get">
+                <input type="text" name="search" placeholder="Search Books...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <!-- <script src="../static/js/search_manager.js"></script> -->
+      
+
+
+        <div class="buttons">
+            <a href="{{url_for('register')}}"><button class="register">Register</button></a>
+            <a href="{{url_for('login')}}"><button class="login">Login</button></a>
+        </div>
+    </header>
+    <div class="cover-image">
+    </div>
+  
+
+    <main>
+        <div class="book-container">
+            {% if books %}
+            {% for book in books %}
+            <div class="book">
+                <img src="{{ book[1] }}" alt="Book Cover Photo" class="book-cover">
+                <div class="book-details">
+                    <h2 class="book-title">{{ book[2] }}</h2>
+                    <p class="book-author">{{ book[3]}}</p>
+                    <p class="book-rating">Rating: {{ book[4] }}</p>
+                    <p class="book-release-time">Release date: {{ book[5] }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+<div>
+</div>
+
+    </main>
+    <footer>
+        <p>&copy; My Library 2023</p>
+    </footer>
+</body>
+
+</html>
